@@ -43,7 +43,7 @@
         </div>
         <div class="card-body">
 
-          <form action="#" method="POST">
+          <form action="{{ route('store.outlet') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Outlet</label>

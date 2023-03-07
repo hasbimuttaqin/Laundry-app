@@ -28,26 +28,24 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kd_invoice' => 'required|unique:transaksis',
+            // 'kd_invoice' => 'required|unique:transaksis',
             'id_outlet' => 'required',
             'id_pelanggan' => 'required',
             'id_paket' => 'required',
-            // 'harga',
             'qty' => 'required',
-            // 'tgl',
-            // 'batas_waktu',
-            // 'tgl_bayar',
-            // 'biaya_tambahan',
-            // 'diskon',
-            // 'pajak',
+            'tgl' => 'required',
+            'batas_waktu' => 'required',
+            'tgl_bayar' => 'required',
+            'biaya_tambahan' => 'required',
+            'diskon' => 'required',
+            'pajak' => 'required',
             // 'status',
             // 'dibayar',
-            // 'total',
             // 'keterangan',
         ]);
 
         $transaksi = new Transaksi;
-        $transaksi->kd_invoice = $request->kd_invoice;
+        // $transaksi->kd_invoice = $request->kd_invoice;
         $transaksi->id_outlet = $request->id_outlet;
         $transaksi->id_pelanggan = $request->id_pelanggan;
         $transaksi->id_paket = $request->id_paket;
@@ -60,10 +58,62 @@ class TransaksiController extends Controller
         $transaksi->pajak = $request->pajak;
         $transaksi->status = 'baru';
         $transaksi->dibayar = 'belum_bayar';
-        $transaksi->total = $transaksi->getTotalHargaAttribute() + $transaksi->biaya_tambahan - $transaksi->diskon + $transaksi->pajak;
+
+        //Hitung Harga Setelah biaya tambahan
+        $hargaSetelahBiayaTambahan = $transaksi->getTotalHargaAttribute() + $transaksi->biaya_tambahan;
+
+        //Hitung harga setelah diskon
+        $hargaSetelahDiskon = $hargaSetelahBiayaTambahan - ($transaksi->diskon / 100 * $hargaSetelahBiayaTambahan);
+
+        //Hitung jumlah  pajak
+        $jumlahPajak = $hargaSetelahDiskon * ($transaksi->pajak / 100);
+
+        //Total Harga
+        $transaksi->total = $hargaSetelahDiskon + $jumlahPajak;
         $transaksi->keterangan = $request->keterangan;
         $transaksi->save();
 
         return redirect()->route('transaksi')->with('success', 'Data transaksi berhasil ditambahkan.');
+    }
+
+    public function show($id)
+    {
+        $transaksi = Transaksi::find($id);
+        $outlet = Outlet::all();
+        $pelanggan = Pelanggan::all();
+        $paket = Paket::all();
+
+        return view('admin.transaksi.edit', compact('transaksi','outlet','pelanggan','paket'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $request->validate([
+            'qty' => 'required',
+            'tgl' => 'required',
+            'batas_waktu' => 'required',
+            'tgl_bayar' => 'required',
+            'biaya_tambahan' => 'required',
+            'diskon' => 'required',
+            'pajak' => 'required',
+        ]);
+
+        $transaksi = Transaksi::find($id);
+        $transaksi->update($request->all());
+
+        //Hitung Harga Setelah biaya tambahan
+        $hargaSetelahBiayaTambahan = $transaksi->getTotalHargaAttribute() + $transaksi->biaya_tambahan;
+
+        //Hitung harga setelah diskon
+        $hargaSetelahDiskon = $hargaSetelahBiayaTambahan - ($transaksi->diskon / 100 * $hargaSetelahBiayaTambahan);
+
+        //Hitung jumlah  pajak
+         $jumlahPajak = $hargaSetelahDiskon * ($transaksi->pajak / 100);
+
+        //Total Harga
+        $transaksi->total = $hargaSetelahDiskon + $jumlahPajak;
+        $transaksi->save();
+        
+        return redirect()->route('transaksi')->with('success', 'Data transaksi berhasil di ubah.');
     }
 }

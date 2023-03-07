@@ -69,8 +69,7 @@
                             <th>Kode Invoice</th>
                             <th>Outlet</th>
                             <th>Nama Pelanggan</th>
-                            <th>Nama Paket</th>
-                            <th>Harga</th>
+                            <th>Nama Paket & Harga</th>
                             <th>Qty</th>
                             <th>Tanggal Transaksi</th>
                             <th>Batas Waktu</th>
@@ -96,11 +95,10 @@
 
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->kd_invoice }}</td>
+                            <td>{{ $item->code }}</td>
                             <td>{{ $item->outlets->nama_outlet}}</td>
                             <td>{{ $item->pelanggans->nama }}</td>
-                            <td>{{ $item->pakets->nama_paket }}</td>
-                            <td>{{ $item->harga }}</td>
+                            <td>{{ $item->pakets->nama_paket }} - Rp.{{ $item->pakets->harga }}</td>
                             <td>{{ $item->qty }}</td>
                             <td>{{ $item->tgl }}</td>
                             <td>{{ $item->batas_waktu }}</td>
@@ -109,16 +107,16 @@
                             <td>{{ $item->diskon }}%</td>
                             <td>{{ $item->pajak }}%</td>
                             <td>{{ $item->status }}</td>
-                            <td>{{ $item->pembayaran }}</td>
+                            <td>{{ $item->dibayar }}</td>
                             <td>Rp.{{ $item->total }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
-                                <a href="#" class="btn btn-success mb-2">
+                                <a href="/ubah/{{ $item->id }}" class="btn btn-success mb-2">
                                     <i class="fas fa-edit fa-sm text-white-50"></i>
                                 </a>
 
                                 </a>
-                                <a href="#" class="btn btn-info">
+                                <a href="/invoice/{{ $item->id }}" class="btn btn-info">
                                     <i class="fas fa-file-invoice fa-sm text-white-50"></i>
                                 </a>
                             </td>

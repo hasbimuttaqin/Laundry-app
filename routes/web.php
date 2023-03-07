@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
@@ -51,3 +52,6 @@ Route::get('/hapus/{id}', [PaketController::class, 'destroy'])->name('destroy.pa
 Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 Route::get('/addtransaksi', [TransaksiController::class, 'create'])->name('c.transaksi');
 Route::post('/prosessadd', [TransaksiController::class, 'store'])->name('s.transaksi');
+Route::get('/ubah/{id}', [TransaksiController::class, 'show'])->name('show.transaksi');
+Route::post('/update/{id}', [TransaksiController::class, 'update'])->name('update.transaksi');
+Route::get('/invoice/{id}', [InvoiceController::class, 'index'])->name('invoice');
