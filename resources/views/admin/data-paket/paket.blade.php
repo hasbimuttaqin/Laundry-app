@@ -89,14 +89,15 @@
                             <td>{{ $row->jenis }}</td>
                             <td>Rp.{{ $row->harga }}</td>
                             <td>
-                                <a href="/ubah/{{ $row->id }}" class="btn btn-success">
+                                <a href="/ubahpaket/{{ $row->id }}" class="btn btn-success">
                                     <span class="text">Edit</span>
                                 </a>
-                                {{-- @if (count($row->transaksis) < 1) --}}
-                                <a href="/hapus/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
+                                
+                                @if (count($row->transaksis) < 1)
+                                <a href="/hapuspaket/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
                                     <span class="text">Delete</span>
                                 </a>
-                                {{-- @endif --}}
+                                @endif
                             </td>
                         </tr>
 

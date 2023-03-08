@@ -43,7 +43,7 @@
         </div>
         <div class="card-body">
 
-          <form action="/edit/{{ $pelanggan->id }}" method="POST">
+          <form action="/editpelanggan/{{ $pelanggan->id }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Member</label>

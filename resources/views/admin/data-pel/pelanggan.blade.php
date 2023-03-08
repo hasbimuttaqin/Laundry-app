@@ -89,14 +89,15 @@
                             <td>{{ $row->jenis_kelamin }}</td>
                             <td>{{ $row->no_tlp }}</td>
                             <td>
-                                <a href="/ubah/{{ $row->id }}" class="btn btn-success">
+                                <a href="/ubahpelanggan/{{ $row->id }}" class="btn btn-success">
                                     <span class="text">Edit</span>
                                 </a>
-                                {{-- @if (count($row->transaksis) < 1) --}}
-                                <a href="/hapus/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
+                                
+                                @if (count($row->transaksis) < 1)
+                                <a href="/hapuspelanggan/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
                                     <span class="text">Delete</span>
                                 </a>
-                                {{-- @endif --}}
+                                @endif
                             </td>
                         </tr>
 

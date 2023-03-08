@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Data Outlet</title>
+    <title>Edit Status Transaksi</title>
 
     @include('template.head')
 
@@ -33,43 +33,31 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Outlet</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Status Transaksi</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Data Outlet</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Status Transaksi</h6>
 
         </div>
         <div class="card-body">
 
-          <form action="/editoutlet/{{ $outlet->id }}" method="POST">
+          <form action="{{ route('update.statustransaksi',  $transaksi->id) }}" method="POST">
             @csrf
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama Member</label>
-                <input type="text" class="form-control" id="nama" name="nama" value="{{ $outlet->nama_outlet }}">
-                @error('nama')
-                 <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
-              </div>
-
-            <div class="mb-4">
-                <label for="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $outlet->alamat }}">
-                @error('alamat')
-                 <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
-              </div>
 
               <div class="mb-3">
-                <label for="notlp" class="form-label">No Telpon</label>
-                <input type="number" class="form-control" id="notelp" name="no_telp" value="{{ $outlet->no_telp }}">
-                @error('no_tlp')
-                 <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" aria-label="Default select example" name="status">
+                    <option selected>{{ $transaksi->status }}</option>
+                    <option value="baru">baru</option>
+                    <option value="proses">proses</option>
+                    <option value="selesai">selesai</option>
+                    <option value="diambil">diambil</option>
+                  </select>
               </div>
 
-              <a href="{{ route('outlet') }}" class="btn btn-secondary">Back</a>
+              <a href="{{ route('transaksi') }}" class="btn btn-secondary">Back</a>
               <button type="submit" class="btn btn-primary">Save</button>
           </form>
 
@@ -82,7 +70,9 @@
 </div>
 <!-- End of Main Content -->
 
+            <!-- Footer -->
 
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->

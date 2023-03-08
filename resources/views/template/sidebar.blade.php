@@ -11,22 +11,26 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-
- <li class="nav-item">
+@if (Auth::user()->role == 'admin' || Auth::user()->role == 'kasir' || Auth::user()->role == 'owner')
+<li class="nav-item">
     <a class="nav-link" href="{{ route('dashboard') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
+@endif
+ 
 
-
+@if (Auth::user()->role == 'kasir')
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{ route('registerpelanggan') }}">
         <i class="fas fa-fw fa-user-plus"></i>
         <span>Registrasi Pelanggan</span></a>
 </li>
+@endif
 
 
-   <!-- Nav Item - Pages Collapse Menu -->
+@if (Auth::user()->role == 'admin')
+       <!-- Nav Item - Pages Collapse Menu -->
    <li class="nav-item">
     <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
         aria-controls="collapsePages">
@@ -42,23 +46,25 @@
         </div>
     </div>
 </li>
+@endif
 
 
-
-
+@if (Auth::user()->role == 'admin' || Auth::user()->role == 'kasir')
 <li class="nav-item">
     <a class="nav-link" href="{{ route('transaksi') }}">
         <i class="fas fa-fw fa-handshake"></i>
         <span>Transaksi</span></a>
 </li>
+@endif
 
 
+@if (Auth::user()->role == 'admin' || Auth::user()->role == 'kasir' || Auth::user()->role == 'owner')
 <li class="nav-item ">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{ route('laporan') }}">
         <i class="fas fa-fw fa-file"></i>
         <span>Laporan</span></a>
 </li>
-
+@endif
 
 
     <!-- Divider -->

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,12 +26,21 @@ class LoginController extends Controller
           if($user->role == 'admin') {
             return redirect()->intended('dashboard');
           } elseif ($user->role == 'kasir') {
-            echo "ini kasir";
+            return redirect()->intended('dashboard');
           } elseif ($user->role == 'owner') {
-            echo "ini owner";
+            return redirect()->intended('dashboard');
           }
        }
 
-       echo "gagal";
+       throw ValidationException::withMessages([
+
+        'username' => 'Maaf Username atau Password anda salah',
+       ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

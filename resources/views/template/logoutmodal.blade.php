@@ -11,7 +11,7 @@ aria-hidden="true">
         <div class="modal-body">Pilih "Logout" untuk keluar dari web management ini.</div>
         <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-            <a class="btn btn-primary" href="#">Logout</a>
+            <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
         </div>
     </div>
 </div>

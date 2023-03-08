@@ -10,9 +10,14 @@ use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $transaksi = Transaksi::with('outlets','pelanggans','pakets')->get();
+        if($request->has('search')){
+            $transaksi = Transaksi::where('qty','LIKE','%'.$request->search.'%')->with('pelanggans','outlets','pakets')->paginate();
+        } else {
+            $transaksi = Transaksi::with('outlets','pelanggans','pakets')->get();
+        }
+       
         return view('admin.transaksi.index', compact('transaksi'));
     }
 

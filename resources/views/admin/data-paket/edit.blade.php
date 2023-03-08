@@ -43,7 +43,7 @@
         </div>
         <div class="card-body">
 
-          <form action="/edit/{{ $paket->id }}" method="POST">
+          <form action="/editpaket/{{ $paket->id }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Outlet</label>

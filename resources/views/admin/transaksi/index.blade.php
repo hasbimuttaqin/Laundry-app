@@ -45,7 +45,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Daftar Data Transaksi</h6>
 
             {{-- FORM SEARCH --}}
-            <form action="/pelanggan" method="GET" class="d-none d-sm-inline-block  align-items-center">
+            <form action="/transaksi" method="GET" class="d-none d-sm-inline-block  align-items-center">
             <div class="input-group">
                 <input type="search" class="form-control bg-light border-0 small" placeholder="Search for..." name="search" autofocus>
                 <div class="input-group-append">
@@ -106,8 +106,17 @@
                             <td>Rp.{{ $item->biaya_tambahan }}</td>
                             <td>{{ $item->diskon }}%</td>
                             <td>{{ $item->pajak }}%</td>
-                            <td>{{ $item->status }}</td>
-                            <td>{{ $item->dibayar }}</td>
+                            <td>
+                                <a href="/editstatustransaksi/{{ $item->id }}" class="btn btn-sm btn-secondary " style="height: 30px">
+                                    <label class="text-white">{{ $item->status }}</label>
+                                </a>
+                            </td>
+                            <td>
+                                
+                                <a href="/editpembayaran/{{ $item->id }}" class="btn btn-sm btn-secondary " style="height: 30px">
+                                    <label class=" text-white">{{ $item->dibayar }}</label>
+                                </a>
+                            </td>
                             <td>Rp.{{ $item->total }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
