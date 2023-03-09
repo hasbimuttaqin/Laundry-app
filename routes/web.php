@@ -11,6 +11,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,3 +74,10 @@ Route::get('/register', [RegisterController::class, 'index'])->name('registerpel
 Route::post('/insert', [RegisterController::class, 'store'])->name('insert.register');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::get('/adduser', [UserController::class, 'create'])->name('add.user');
+Route::post('/prosesadduser', [UserController::class, 'store'])->name('store.user');
+Route::get('/edituser/{id}', [UserController::class, 'show'])->name('show.user');
+Route::post('/updateuser/{id}', [UserController::class, 'update'])->name('update.user');
+Route::get('/deletuser/{id}', [UserController::class, 'destroy'])->name('delete.user');

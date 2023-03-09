@@ -18,7 +18,16 @@
         <span>Dashboard</span></a>
 </li>
 @endif
- 
+
+
+@if (Auth::user()->role == 'admin')
+<li class="nav-item">
+    <a class="nav-link" href="/user">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Data User</span></a>
+</li>
+@endif
+
 
 @if (Auth::user()->role == 'kasir')
 <li class="nav-item">

@@ -107,14 +107,14 @@
                             <td>{{ $item->diskon }}%</td>
                             <td>{{ $item->pajak }}%</td>
                             <td>
-                                <a href="/editstatustransaksi/{{ $item->id }}" class="btn btn-sm btn-secondary " style="height: 30px">
-                                    <label class="text-white">{{ $item->status }}</label>
+                                <a href="/editstatustransaksi/{{ $item->id }}" class="btn btn-sm btn-white" style="height: 30px">
+                                    <label class="text-secondary">{{ $item->status }}</label>
                                 </a>
                             </td>
                             <td>
-                                
-                                <a href="/editpembayaran/{{ $item->id }}" class="btn btn-sm btn-secondary " style="height: 30px">
-                                    <label class=" text-white">{{ $item->dibayar }}</label>
+
+                                <a href="/editpembayaran/{{ $item->id }}" class="btn btn-sm btn-white" style="height: 30px">
+                                    <label class=" text-secondary">{{ $item->dibayar }}</label>
                                 </a>
                             </td>
                             <td>Rp.{{ $item->total }}</td>

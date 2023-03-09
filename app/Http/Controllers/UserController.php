@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        $user = User::all();
+
+        return view('admin.data-user.index', compact('user'));
+    }
+
+    public function create()
+    {
+        return view('admin.data-user.tambah');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required||unique:users',
+            'role' => 'required',
+            'password' => 'required'
+        ]);
+
+        $request['password'] = Hash::make('password');
+
+        User::create($request->all());
+        return redirect()->route('user')->with('success', 'Data User Berhasil Ditambahkan');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('admin.data-user.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+            'role' => 'required'
+        ]);
+
+        $user = User::find($id);
+        $user->update($request->all());
+
+        return redirect()->route('user')->with('success', 'Data User Berhasil Diubah');
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $user = User::find($id)->delete();
+
+        return redirect()->route('user')->with('success', 'Data User Berhasil Dihapus');
+    }
+}
