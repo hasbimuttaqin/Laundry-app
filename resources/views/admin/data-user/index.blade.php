@@ -87,14 +87,17 @@
                             <td>{{ $row->username }}</td>
                             <td>{{ $row->role }}</td>
                             <td>
-                                {{-- @if (Auth()->check() && Auth()->user()->role == $row->role) --}}
+                                
+                                @if ( Auth()->user()->id !== $row->id)
                                 <a href="/edituser/{{ $row->id }}" class="btn btn-success">
                                     <span class="text">Edit</span>
                                   </a>
-                                {{-- @endif --}}
-                                <a href="/deletuser/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
+
+                                  <a href="/deletuser/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
                                     <span class="text">Delete</span>
                                 </a>
+                                @endif
+
                             </td>
                         </tr>
 

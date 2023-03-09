@@ -33,7 +33,7 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        $request['password'] = Hash::make('password');
+        $request['password'] = Hash::make($request->password);
 
         User::create($request->all());
         return redirect()->route('user')->with('success', 'Data User Berhasil Ditambahkan');
