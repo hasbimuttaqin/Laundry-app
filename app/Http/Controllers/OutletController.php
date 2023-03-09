@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Outlet;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\OutputError;
+// use PHPUnit\Framework\OutputError;
 
 class OutletController extends Controller
 {
@@ -44,6 +44,12 @@ class OutletController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama_outlet' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required'
+        ]);
+
         $outlet = Outlet::find($id);
         $outlet->update($request->all());
 

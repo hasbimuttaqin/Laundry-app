@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::all();
+        if($request->has('search')) {
+            $user = User::where('nama','LIKE','%'.$request->search.'%')->paginate();
+        } else {
+            $user = User::all();
+        }
 
         return view('admin.data-user.index', compact('user'));
     }

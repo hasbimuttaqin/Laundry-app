@@ -43,12 +43,12 @@
         </div>
         <div class="card-body">
 
-          <form action="/editoutlet/{{ $outlet->id }}" method="POST">
+          <form action="{{ route('update.outlet', $outlet->id )}}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Member</label>
-                <input type="text" class="form-control" id="nama" name="nama" value="{{ $outlet->nama_outlet }}">
-                @error('nama')
+                <label for="nama" class="form-label">Nama Outlet</label>
+                <input type="text" class="form-control" id="nama" name="nama_outlet" value="{{ $outlet->nama_outlet }}">
+                @error('nama_outlet')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
               </div>
@@ -64,7 +64,7 @@
               <div class="mb-3">
                 <label for="notlp" class="form-label">No Telpon</label>
                 <input type="number" class="form-control" id="notelp" name="no_telp" value="{{ $outlet->no_telp }}">
-                @error('no_tlp')
+                @error('no_telp')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
               </div>
