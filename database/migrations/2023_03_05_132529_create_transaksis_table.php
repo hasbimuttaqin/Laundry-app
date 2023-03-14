@@ -19,6 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->unsignedBigInteger('id_outlet');
             $table->unsignedBigInteger('id_pelanggan');
             $table->unsignedBigInteger('id_paket');
+            $table->integer('harga')->nullable();
             $table->integer('qty');
             $table->dateTime('tgl');
             $table->dateTime('batas_waktu');

@@ -68,6 +68,9 @@
                     <option value="Laki-Laki">Laki-Laki</option>
                     <option value="Perempuan">Perempuan</option>
                   </select>
+                  @error('jenis_kelamin')
+                 <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="mb-3">

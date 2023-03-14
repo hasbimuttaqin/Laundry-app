@@ -8,6 +8,7 @@ use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TransaksiController;
@@ -81,3 +82,7 @@ Route::post('/prosesadduser', [UserController::class, 'store'])->name('store.use
 Route::get('/edituser/{id}', [UserController::class, 'show'])->name('show.user');
 Route::post('/updateuser/{id}', [UserController::class, 'update'])->name('update.user');
 Route::get('/deletuser/{id}', [UserController::class, 'destroy'])->name('delete.user');
+
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::post('updatephoto', [ProfileController::class, 'update'])->name('update.profile');

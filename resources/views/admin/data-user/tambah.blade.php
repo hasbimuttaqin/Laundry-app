@@ -69,6 +69,9 @@
                     <option value="kasir">Kasir</option>
                     <option value="owner">Owner</option>
                   </select>
+                  @error('role')
+                  <div class="alert alert-danger mt-2">{{ $message }}</div>
+                 @enderror
               </div>
 
               <div class="mb-3">

@@ -71,26 +71,26 @@
 
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Paket</label>
-                <select class="form-select" aria-label="Default select example" name="id_paket">
+                <select class="form-select" aria-label="Default select example" id="id_paket" name="id_paket">
                     <option selected>Pilih Paket</option>
                       @foreach ($paket as $item)
-                         <option value="{{ $item->id }}" data-harga="{{ $item->harga }}">{{ $item->nama_paket}} - Rp.{{ $item->harga }}</option>
+                         <option value="{{ $item->id }}" data-harga="{{ $item->harga }}">{{ $item->nama_paket}}</option>
                       @endforeach
                   </select>
+              </div>
+
+              <div class="mb-4">
+                <label for="qty" class="form-label">Harga</label>
+                <input type="text" class="form-control" id="harga" name="harga" readonly>
+                @error('harga')
+                  <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="mb-4">
                 <label for="qty" class="form-label">Qty</label>
                 <input type="text" class="form-control" id="qty" name="qty">
                 @error('qty')
-                  <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="mb-4">
-                <label for="tgl" class="form-label">Tanggal Transaksi</label>
-                <input type="datetime-local" class="form-control" id="tgl" name="tgl">
-                @error('tgl')
                   <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
               </div>
@@ -194,6 +194,16 @@
 
     {{-- JavaScript --}}
       @include('template.script')
+
+      <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function () {
+            $('#id_paket').on('change', function () {
+                var harga=$('#id_paket option:selected').data('harga')
+                $('#harga').val(harga);
+            })
+         })
+      </script>
     {{-- End-JavaScript --}}
 
 </body>

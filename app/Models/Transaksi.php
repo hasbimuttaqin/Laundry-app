@@ -18,6 +18,7 @@ class Transaksi extends Model
         'id_outlet',
         'id_pelanggan',
         'id_paket',
+        'harga',
         'qty',
         'tgl',
         'batas_waktu',

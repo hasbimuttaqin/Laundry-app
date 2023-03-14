@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+
 use App\Models\Outlet;
 use App\Models\Paket;
 use App\Models\Pelanggan;
 use App\Models\Transaksi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -17,7 +20,7 @@ class TransaksiController extends Controller
         } else {
             $transaksi = Transaksi::with('outlets','pelanggans','pakets')->get();
         }
-       
+
         return view('admin.transaksi.index', compact('transaksi'));
     }
 
@@ -38,7 +41,7 @@ class TransaksiController extends Controller
             'id_pelanggan' => 'required',
             'id_paket' => 'required',
             'qty' => 'required',
-            'tgl' => 'required',
+            // 'tgl' => 'required',
             'batas_waktu' => 'required',
             'tgl_bayar' => 'required',
             'biaya_tambahan' => 'required',
@@ -49,13 +52,16 @@ class TransaksiController extends Controller
             // 'keterangan',
         ]);
 
+        $date = Carbon::now()->timezone('Asia/Jakarta');
+
         $transaksi = new Transaksi;
         // $transaksi->kd_invoice = $request->kd_invoice;
         $transaksi->id_outlet = $request->id_outlet;
         $transaksi->id_pelanggan = $request->id_pelanggan;
         $transaksi->id_paket = $request->id_paket;
+        $transaksi->harga = $request->harga;
         $transaksi->qty = $request->qty;
-        $transaksi->tgl = $request->tgl;
+        $transaksi->tgl = $date;
         $transaksi->batas_waktu = $request->batas_waktu;
         $transaksi->tgl_bayar = $request->tgl_bayar;
         $transaksi->biaya_tambahan = $request->biaya_tambahan;
@@ -118,7 +124,7 @@ class TransaksiController extends Controller
         //Total Harga
         $transaksi->total = $hargaSetelahDiskon + $jumlahPajak;
         $transaksi->save();
-        
+
         return redirect()->route('transaksi')->with('success', 'Data transaksi berhasil di ubah.');
     }
 }

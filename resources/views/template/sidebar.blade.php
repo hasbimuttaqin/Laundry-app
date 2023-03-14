@@ -23,7 +23,7 @@
 @if (Auth::user()->role == 'admin')
 <li class="nav-item">
     <a class="nav-link" href="/user">
-        <i class="fas fa-fw fa-user"></i>
+        <i class="fas fa-fw fa-user-tie"></i>
         <span>Data User</span></a>
 </li>
 @endif
@@ -49,7 +49,7 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('pelanggan') }}"><i class="fas fa-fw fa-user"></i> Pelanggan</a>
+            <a class="collapse-item" href="{{ route('pelanggan') }}"><i class="fas fa-fw fa-users"></i> Pelanggan</a>
             <a class="collapse-item" href="{{ route('outlet') }}"><i class="fas fa-fw fa-store"></i> Outlet</a>
             <a class="collapse-item" href="{{ route('paket') }}"><i class="fas fa-fw fa-cube"></i> Paket</a>
         </div>

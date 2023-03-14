@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Laporan Transaksi</title>
+    <title id="judul">Laporan Transaksi</title>
     <style type="text/css">
           @media print{
             .no-print{
@@ -62,11 +62,20 @@
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 
 
     <button class="no-print" onclick="printLaporan()" style="margin-top: 10px">Cetak</button>
+
+    <div class="container">
+        <div class="row">
+            <h3 style="text-align: right">Total : {{ $item->total + $item->total}}</h3>
+        </div>
+
+    </div>
+
 
     <script>
         function printLaporan() {

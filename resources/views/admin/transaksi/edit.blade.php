@@ -73,11 +73,19 @@
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Paket</label>
                 <select class="form-select" aria-label="Default select example" name="id_paket" disabled>
-                    <option selected value="{{ $transaksi->id_paket }}">{{ $transaksi->pakets->nama_paket}} - Rp.{{ $transaksi->pakets->harga }}</option>
+                    <option selected value="{{ $transaksi->id_paket }}">{{ $transaksi->pakets->nama_paket}}</option>
                       @foreach ($paket as $item)
-                         <option value="{{ $item->id }}" data-harga="{{ $item->harga }}">{{ $item->nama_paket}} - Rp.{{ $item->harga }}</option>
+                         <option value="{{ $item->id }}" data-harga="{{ $item->harga }}">{{ $item->nama_paket}}</option>
                       @endforeach
                   </select>
+              </div>
+
+              <div class="mb-4">
+                <label for="qty" class="form-label">Harga</label>
+                <input type="text" class="form-control" id="harga" name="harga" readonly value="{{ $item->harga }}">
+                @error('harga')
+                  <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="mb-4">

@@ -87,7 +87,7 @@
                             <td>{{ $row->username }}</td>
                             <td>{{ $row->role }}</td>
                             <td>
-                                
+
                                 @if ( Auth()->user()->id !== $row->id)
                                 <a href="/edituser/{{ $row->id }}" class="btn btn-success">
                                     <span class="text">Edit</span>
