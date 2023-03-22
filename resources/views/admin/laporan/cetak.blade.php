@@ -22,7 +22,8 @@
                             <th>Kode Invoice</th>
                             <th>Outlet</th>
                             <th>Nama Pelanggan</th>
-                            <th>Nama Paket & Harga</th>
+                            <th>Nama Paket</th>
+                            <th>Harga</th>
                             <th>Qty</th>
                             <th>Tanggal Transaksi</th>
                             <th>Batas Waktu</th>
@@ -46,7 +47,8 @@
                         <td>{{ $item->code }}</td>
                         <td>{{ $item->outlets->nama_outlet}}</td>
                         <td>{{ $item->pelanggans->nama }}</td>
-                        <td>{{ $item->pakets->nama_paket }} - Rp.{{ $item->pakets->harga }}</td>
+                        <td>{{ $item->pakets->nama_paket }}</td>
+                        <td>Rp.{{ $item->pakets->harga }}</td>
                         <td>{{ $item->qty }}</td>
                         <td>{{ $item->tgl }}</td>
                         <td>{{ $item->batas_waktu }}</td>
@@ -69,12 +71,12 @@
 
     <button class="no-print" onclick="printLaporan()" style="margin-top: 10px">Cetak</button>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
-            <h3 style="text-align: right">Total : {{ $item->total + $item->total}}</h3>
+            <h3 style="text-align: right">Total : </h3>
         </div>
 
-    </div>
+    </div> --}}
 
 
     <script>
