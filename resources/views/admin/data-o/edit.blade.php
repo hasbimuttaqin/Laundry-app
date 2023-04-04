@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Data Outlet</title>
+    <title>Edit Outlets Data</title>
 
     @include('template.head')
 
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Outlet</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Outlets</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Data Outlet</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Outlets Data</h6>
 
         </div>
         <div class="card-body">
@@ -46,7 +46,7 @@
           <form action="{{ route('update.outlet', $outlet->id )}}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Outlet</label>
+                <label for="nama" class="form-label">Outlets Name</label>
                 <input type="text" class="form-control" id="nama" name="nama_outlet" value="{{ $outlet->nama_outlet }}">
                 @error('nama_outlet')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -54,7 +54,7 @@
               </div>
 
             <div class="mb-4">
-                <label for="alamat" class="form-label">Alamat</label>
+                <label for="alamat" class="form-label">Address</label>
                 <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $outlet->alamat }}">
                 @error('alamat')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -62,7 +62,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="notlp" class="form-label">No Telpon</label>
+                <label for="notlp" class="form-label">Phone Number</label>
                 <input type="number" class="form-control" id="notelp" name="no_telp" value="{{ $outlet->no_telp }}">
                 @error('no_telp')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>

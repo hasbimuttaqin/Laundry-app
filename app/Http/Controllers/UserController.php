@@ -36,7 +36,7 @@ class UserController extends Controller
         $request['password'] = Hash::make($request->password);
 
         User::create($request->all());
-        return redirect()->route('user')->with('success', 'Data User Berhasil Ditambahkan');
+        return redirect()->route('user')->with('success', 'User Data Add Successfully');
     }
 
     public function show($id)
@@ -56,13 +56,13 @@ class UserController extends Controller
         $user = User::find($id);
         $user->update($request->all());
 
-        return redirect()->route('user')->with('success', 'Data User Berhasil Diubah');
+        return redirect()->route('user')->with('success', 'User Data Successfully Changed');
     }
 
     public function destroy(Request $request, $id)
     {
         $user = User::find($id)->delete();
 
-        return redirect()->route('user')->with('success', 'Data User Berhasil Dihapus');
+        return redirect()->route('user')->with('success', 'User Data Has Been Successfully Deleted');
     }
 }

@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title id="judul">Laporan Transaksi</title>
+    <title id="judul">Transaction Report</title>
     <style type="text/css">
           @media print{
             .no-print{
@@ -10,8 +10,8 @@
     </style>
 </head>
 <body>
-    <h1>Laporan Transaksi</h1>
-    <p>Periode: {{ $tgl}} sampai {{ $batas_waktu }}</p>
+    <h1>Transaction Report</h1>
+    <p>Period: {{ $tgl}} until {{ $batas_waktu }}</p>
 
     <div class="container">
         <div class="row">
@@ -19,20 +19,20 @@
                 <thead>
                     <tr>
                             <th>No</th>
-                            <th>Kode Invoice</th>
-                            <th>Outlet</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Nama Paket</th>
-                            <th>Harga</th>
+                            <th>Invoice Code</th>
+                            <th>Outlets</th>
+                            <th>Member Name</th>
+                            <th>Package Name</th>
+                            <th>Price</th>
                             <th>Qty</th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Batas Waktu</th>
-                            <th>Tanggal Bayar</th>
-                            <th>Biaya Tambahan</th>
-                            <th>Diskon%</th>
-                            <th>Pajak%</th>
+                            <th>Transaction Date</th>
+                            <th>Deadline</th>
+                            <th>Pay Date</th>
+                            <th>Additional Cost</th>
+                            <th>Discount%</th>
+                            <th>Tax%</th>
                             <th>Status</th>
-                            <th>Pembayaran</th>
+                            <th>Payments</th>
                             <th>Sub Total</th>
                             <th>Ket</th>
                     </tr>
@@ -69,7 +69,7 @@
     </div>
 
 
-    <button class="no-print" onclick="printLaporan()" style="margin-top: 10px">Cetak</button>
+    <button class="no-print" onclick="printLaporan()" style="margin-top: 10px">Print</button>
 
     {{-- <div class="container">
         <div class="row">

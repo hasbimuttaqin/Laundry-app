@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Tambah Data Pelanggan</title>
+    <title>Add Member Data</title>
 
     @include('template.head')
 
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tambah Pelanggan</h1>
+    <h1 class="h3 mb-2 text-gray-800">Add Member</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tambah Data Pelanggan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Add Member Data</h6>
 
         </div>
         <div class="card-body">
@@ -46,7 +46,7 @@
           <form action="{{ route('store.pelanggan') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Pelanggan</label>
+                <label for="nama" class="form-label">Member Name</label>
                 <input type="text" class="form-control" id="nama" name="nama">
                 @error('nama')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -54,7 +54,7 @@
               </div>
 
             <div class="mb-4">
-                <label for="alamat" class="form-label">Alamat</label>
+                <label for="alamat" class="form-label">Address</label>
                 <input type="text" class="form-control" id="alamat" name="alamat">
                 @error('alamat')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -62,11 +62,11 @@
               </div>
 
             <div class="mb-3">
-                <label for="jeniskelamin" class="form-label">Jenis Kelamin</label>
+                <label for="jeniskelamin" class="form-label">Gender</label>
                 <select class="form-select" aria-label="Default select example" name="jenis_kelamin">
-                    <option selected>Pilih Jenis Kelamin</option>
-                    <option value="Laki-Laki">Laki-Laki</option>
-                    <option value="Perempuan">Perempuan</option>
+                    <option selected>Select Gender</option>
+                    <option value="Laki-Laki">Male</option>
+                    <option value="Perempuan">Female</option>
                   </select>
                   @error('jenis_kelamin')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -74,7 +74,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="notlp" class="form-label">No Telpon</label>
+                <label for="notlp" class="form-label">Phone Number</label>
                 <input type="number" class="form-control" id="notelp" name="no_tlp">
                 @error('no_tlp')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>

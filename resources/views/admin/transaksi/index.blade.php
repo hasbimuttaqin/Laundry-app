@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Data Transaksi</title>
+    <title>Transaction Data</title>
 
     @include('template.head')
 
@@ -33,7 +33,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Transaksi</h1>
+    <h1 class="h3 mb-2 text-gray-800">Transaction Data</h1>
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -42,7 +42,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Data Transaksi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">List Of Transaction Data</h6>
 
             {{-- FORM SEARCH --}}
             <form action="/transaksi" method="GET" class="d-none d-sm-inline-block  align-items-center">
@@ -58,7 +58,7 @@
          {{-- END SEARCH --}}
 
             <a href="/addtransaksi" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                class="fas fa-plus fa-sm text-white-50"></i> Add Data</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -66,23 +66,23 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kode Invoice</th>
-                            <th>Outlet</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Nama Paket</th>
-                            <th>Harga</th>
+                            <th>Invoice Code</th>
+                            <th>Outlets</th>
+                            <th>Member Name</th>
+                            <th>Package Name</th>
+                            <th>Price</th>
                             <th>Quantity</th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Batas Waktu</th>
-                            <th>Tanggal Bayar</th>
-                            <th>Biaya Tambahan</th>
-                            <th>Diskon%</th>
-                            <th>Pajak%</th>
+                            <th>Transaction Date</th>
+                            <th>Deadline</th>
+                            <th>Pay Date</th>
+                            <th>Additional Cost</th>
+                            <th>Discount%</th>
+                            <th>Tax%</th>
                             <th>Status</th>
-                            <th>Pembayaran</th>
+                            <th>Payment</th>
                             <th>Sub Total</th>
                             <th>Ket</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Pembayaran Transaksi</title>
+    <title>Edit Transaction Payments</title>
 
     @include('template.head')
 
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Pembayaran Transaksi</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Transaction Payments</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Pembayaran Transaksi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Transaction Payments</h6>
 
         </div>
         <div class="card-body">
@@ -47,11 +47,11 @@
             @csrf
 
               <div class="mb-3">
-                <label for="status" class="form-label">Pembayaran</label>
+                <label for="status" class="form-label">Payments</label>
                 <select class="form-select" aria-label="Default select example" name="dibayar">
                     <option selected>{{ $transaksi->dibayar }}</option>
-                    <option value="belum_bayar">Belum Bayar</option>
-                    <option value="selesai_bayar">Selesai Bayar</option>
+                    <option value="belum_bayar">Not Yet Paid</option>
+                    <option value="selesai_bayar">Done Paying</option>
                   </select>
               </div>
 

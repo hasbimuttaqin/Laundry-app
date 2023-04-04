@@ -86,14 +86,14 @@
                     <table>
                          <tr>
                               <td>
-                                   Kepada Member : {{ $transaksi->pelanggans->nama }} <br>
-                                   No Telpon : {{ $transaksi->pelanggans->no_tlp }} <br>
-                                   Batas Tanggal Pembayaran : {{ $transaksi->batas_waktu }}
+                                   To Member : {{ $transaksi->pelanggans->nama }} <br>
+                                   Phone Number : {{ $transaksi->pelanggans->no_tlp }} <br>
+                                   Payment Deadline : {{ $transaksi->batas_waktu }}
                               </td>
 
                               <td>
-                                   Nama Pegawai : {{ Auth::user()->nama }} <br>
-                                   Jabatan : {{ Auth::user()->role }}
+                                   Name User : {{ Auth::user()->nama }} <br>
+                                   Position : {{ Auth::user()->role }}
                               </td>
                          </tr>
                     </table>
@@ -103,12 +103,12 @@
 
 <table>
      <tr class="heading">
-          <td>Nama Paket</td>
+          <td>Package Name</td>
           <td style="text-align: left">Quantity</td>
-          <td>Harga Paket</td>
-          <td>Biaya Tambahan</td>
-          <td>Diskon</td>
-          <td>Pajak</td>
+          <td>Package Price</td>
+          <td>Additional Cost</td>
+          <td>discount</td>
+          <td>Tax</td>
           <td>Total</td>
      </tr>
 
@@ -124,7 +124,7 @@
 
 </table>
 
-<button class="no-print" onclick="printInvoice()" style="margin-top: 10px">Cetak</button>
+<button class="no-print" onclick="printInvoice()" style="margin-top: 10px">Print</button>
 
 <script>
     function printInvoice() {

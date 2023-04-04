@@ -84,7 +84,7 @@ class TransaksiController extends Controller
         $transaksi->keterangan = $request->keterangan;
         $transaksi->save();
 
-        return redirect()->route('transaksi')->with('success', 'Data transaksi berhasil ditambahkan.');
+        return redirect()->route('transaksi')->with('success', 'Transaction Data Add Successfully');
     }
 
     public function show($id)
@@ -125,6 +125,6 @@ class TransaksiController extends Controller
         $transaksi->total = $hargaSetelahDiskon + $jumlahPajak;
         $transaksi->save();
 
-        return redirect()->route('transaksi')->with('success', 'Data transaksi berhasil di ubah.');
+        return redirect()->route('transaksi')->with('success', 'Transaction Data Successfully Changed');
     }
 }

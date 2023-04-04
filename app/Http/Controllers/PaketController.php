@@ -36,7 +36,7 @@ class PaketController extends Controller
 
         Paket::create($request->all());
 
-        return redirect()->route('paket')->with('success', 'Data paket berhasil ditambahkan.');
+        return redirect()->route('paket')->with('success', 'Package Data Add Successfully');
     }
 
     public function show($id)
@@ -58,12 +58,12 @@ class PaketController extends Controller
        $paket = Paket::find($id);
        $paket->update($request->all());
 
-       return redirect()->route('paket')->with('success', 'Data paket berhasil diubah.');
+       return redirect()->route('paket')->with('success', 'Package Data Successfully Cahnged');
     }
 
     public function destroy(Request $request, $id)
     {
         $paket = Paket::find($id)->delete();
-        return redirect()->route('paket')->with('success', 'Data paket berhasil dihapus');
+        return redirect()->route('paket')->with('success', 'Package Data Has Been Successfully Deleted');
     }
 }

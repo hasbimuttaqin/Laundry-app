@@ -19,6 +19,6 @@ class PembayaranController extends Controller
         $transaksi = Transaksi::find($id);
         $transaksi->update($request->all());
 
-        return redirect()->route('transaksi')->with('success', 'Pembayaran Transaksi Berhasil Diubah');
+        return redirect()->route('transaksi')->with('success', 'Transaction Payments Successfully Changed');
     }
 }

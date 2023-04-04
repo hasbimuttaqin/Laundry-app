@@ -3,14 +3,14 @@ aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Apakah Kamu Yakin Ingin Logout?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Are You Sure You Want To Logout?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
         </div>
-        <div class="modal-body">Pilih "Logout" untuk keluar dari web management ini.</div>
+        <div class="modal-body">Select "Logout" To Exit This Application</div>
         <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
         </div>
     </div>

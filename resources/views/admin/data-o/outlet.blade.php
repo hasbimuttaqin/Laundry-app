@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Data Outlet</title>
+    <title>Outlets Data</title>
 
     @include('template.head')
 
@@ -33,7 +33,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Outlet</h1>
+    <h1 class="h3 mb-2 text-gray-800">Outlets Data</h1>
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -42,7 +42,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Data Outlet</h6>
+            <h6 class="m-0 font-weight-bold text-primary">List Of Outlets Data</h6>
 
             {{-- FORM SEARCH --}}
             <form action="/outlet" method="GET" class="d-none d-sm-inline-block  align-items-center">
@@ -58,7 +58,7 @@
          {{-- END SEARCH --}}
 
             <a href="/addoutlet" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                class="fas fa-plus fa-sm text-white-50"></i> Add Data</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -66,10 +66,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Outlet</th>
-                            <th>Alamat Outlet</th>
-                            <th>No Telp</th>
-                            <th>Aksi</th>
+                            <th>Outlets Name</th>
+                            <th>Outlets Address</th>
+                            <th>Phone Number</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -92,7 +92,7 @@
                                 </a>
                                 
                                 @if (count($row->transaksis) < 1)
-                                <a href="/hapusoutlet/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
+                                <a href="/hapusoutlet/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Are You Sure You Want To Delete?')">
                                     <span class="text">Delete</span>
                                 </a>
                                 @endif

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Transaksi</title>
+    <title>Edit Transaction</title>
 
     @include('template.head')
 
@@ -38,7 +38,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Data Transaksi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Transaction Data</h6>
 
         </div>
         <div class="card-body">
@@ -46,12 +46,12 @@
           <form action="{{ route('update.transaksi', $transaksi->id ) }}" method="POST">
             @csrf
             <div class="mb-4">
-                <label for="invoice" class="form-label">Kode Invoice</label>
+                <label for="invoice" class="form-label">Invoice Code</label>
                 <input type="text" class="form-control" id="invoice" name="kd_invoice" value="{{ $transaksi->code }}" disabled>
               </div>
 
               <div class="mb-3">
-                <label for="nama" class="form-label">Outlet</label>
+                <label for="nama" class="form-label">Outlets</label>
                 <select class="form-select" aria-label="Default select example" name="id_outlet" disabled>
                     <option selected value="{{ $transaksi->id_outlet }}">{{ $transaksi->outlets->nama_outlet }}</option>
                       @foreach ($outlet as $item)
@@ -61,7 +61,7 @@
               </div>
 
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Pelanggan</label>
+                <label for="nama" class="form-label">Member Name</label>
                 <select class="form-select" aria-label="Default select example" name="id_pelanggan" disabled>
                     <option selected value="{{ $transaksi->id_pelanggan }}">{{ $transaksi->pelanggans->nama }}</option>
                       @foreach ($pelanggan as $item)
@@ -71,7 +71,7 @@
               </div>
 
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Paket</label>
+                <label for="nama" class="form-label">Package Name</label>
                 <select class="form-select" aria-label="Default select example" name="id_paket" disabled>
                     <option selected value="{{ $transaksi->id_paket }}">{{ $transaksi->pakets->nama_paket}}</option>
                       @foreach ($paket as $item)
@@ -81,7 +81,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="qty" class="form-label">Harga</label>
+                <label for="qty" class="form-label">Price</label>
                 <input type="text" class="form-control" id="harga" name="harga" readonly value="{{ $item->harga }}">
                 @error('harga')
                   <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -97,7 +97,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="tgl" class="form-label">Tanggal Transaksi</label>
+                <label for="tgl" class="form-label">Date Transaction</label>
                 <input type="datetime-local" class="form-control" id="tgl" name="tgl" value="{{ $transaksi->tgl }}">
                 @error('tgl')
                   <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -105,7 +105,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="batas_waktu" class="form-label">Batas Waktu</label>
+                <label for="batas_waktu" class="form-label">Deadline</label>
                 <input type="datetime-local" class="form-control" id="batas_waktu" name="batas_waktu" value="{{ $transaksi->batas_waktu }}">
                 @error('batas_waktu')
                   <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -113,7 +113,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="tgl_bayar" class="form-label">Tanggal Bayar</label>
+                <label for="tgl_bayar" class="form-label">Pay Date</label>
                 <input type="datetime-local" class="form-control" id="tgl_bayar" name="tgl_bayar" value="{{ $transaksi->tgl_bayar }}">
                 @error('tgl_bayar')
                   <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -121,7 +121,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="biaya_tambahan" class="form-label">Biaya Tambahan</label>
+                <label for="biaya_tambahan" class="form-label">Additional Cost</label>
                 <input type="number" class="form-control" id="biaya_tambahan" name="biaya_tambahan" value="{{ $transaksi->biaya_tambahan }}">
                 {{-- <input type="checkbox" name="use_biaya_tambahan" id="use_biaya_tambahan"> Gunakan biaya tambahan --}}
                 @error('biaya_tambahan')
@@ -130,7 +130,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="diskon" class="form-label">Diskon%</label>
+                <label for="diskon" class="form-label">Discount%</label>
                 <input type="number" class="form-control" id="diskon" name="diskon" value="{{ $transaksi->diskon }}">
                 {{-- <input type="checkbox" name="use_diskon" id="use_diskon"> Gunakan diskon --}}
                 @error('diskon')
@@ -139,7 +139,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="pajak" class="form-label">Pajak%</label>
+                <label for="pajak" class="form-label">Tax%</label>
                 <input type="number" class="form-control" id="pajak" name="pajak" value="{{ $transaksi->pajak }}">
                 {{-- <input type="checkbox" name="use_pajak" id="use_pajak"> Gunakan pajak --}}
                 @error('pajak')
@@ -151,24 +151,24 @@
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" aria-label="Default select example" name="status">
                     <option selected>{{ $transaksi->status}}</option>
-                    <option value="baru">Baru</option>
-                    <option value="proses">Proses</option>
-                    <option value="selesai">Selesai</option>
-                    <option value="diambil">Diambil</option>
+                    <option value="baru">New</option>
+                    <option value="proses">Process</option>
+                    <option value="selesai">Done</option>
+                    <option value="diambil">Taken</option>
                   </select>
               </div>
 
               <div class="mb-3">
-                <label for="dibayar" class="form-label">Pembayaran</label>
+                <label for="dibayar" class="form-label">Payment</label>
                 <select class="form-select" aria-label="Default select example" name="dibayar">
                     <option selected>{{ $transaksi->dibayar }}</option>
-                    <option value="belum_bayar">Belum Bayar</option>
-                    <option value="selesai_bayar">Selesai Bayar</option>
+                    <option value="belum_bayar">Not Yet Paid</option>
+                    <option value="selesai_bayar">Done Paying</option>
                   </select>
               </div>
 
               <div class="mb-4">
-                <label for="keterangan" class="form-label">Keterangan</label>
+                <label for="keterangan" class="form-label">Information</label>
                 <input type="text" class="form-control" id="keterangan" name="keterangan" value="{{ $transaksi->keterangan }}">
                 @error('keterangan')
                   <div class="alert alert-danger mt-2">{{ $message }}</div>

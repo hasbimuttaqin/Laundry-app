@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Data User</title>
+    <title>Edit User Data</title>
 
     @include('template.head')
 
@@ -38,7 +38,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Data User</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit User Data</h6>
 
         </div>
         <div class="card-body">
@@ -46,7 +46,7 @@
           <form action="{{ route('update.user', $user->id) }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
+                <label for="nama" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nama" name="nama" value="{{ $user->nama }}">
                 @error('nama')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -66,7 +66,7 @@
                 <select class="form-select" aria-label="Default select example" name="role">
                     <option selected>{{ $user->role }}</option>
                     <option value="admin">Admin</option>
-                    <option value="kasir">Kasir</option>
+                    <option value="kasir">Cashier</option>
                     <option value="owner">Owner</option>
                   </select>
               </div>

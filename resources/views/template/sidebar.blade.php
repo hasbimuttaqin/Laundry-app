@@ -24,7 +24,7 @@
 <li class="nav-item">
     <a class="nav-link" href="/user">
         <i class="fas fa-fw fa-user-tie"></i>
-        <span>Data User</span></a>
+        <span>User Data</span></a>
 </li>
 @endif
 
@@ -49,9 +49,9 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('pelanggan') }}"><i class="fas fa-fw fa-users"></i> Pelanggan</a>
-            <a class="collapse-item" href="{{ route('outlet') }}"><i class="fas fa-fw fa-store"></i> Outlet</a>
-            <a class="collapse-item" href="{{ route('paket') }}"><i class="fas fa-fw fa-cube"></i> Paket</a>
+            <a class="collapse-item" href="{{ route('pelanggan') }}"><i class="fas fa-fw fa-users"></i> Member</a>
+            <a class="collapse-item" href="{{ route('outlet') }}"><i class="fas fa-fw fa-store"></i> Outlets</a>
+            <a class="collapse-item" href="{{ route('paket') }}"><i class="fas fa-fw fa-cube"></i> Package</a>
         </div>
     </div>
 </li>
@@ -62,7 +62,7 @@
 <li class="nav-item">
     <a class="nav-link" href="{{ route('transaksi') }}">
         <i class="fas fa-fw fa-handshake"></i>
-        <span>Transaksi</span></a>
+        <span>Transaction</span></a>
 </li>
 @endif
 
@@ -71,7 +71,7 @@
 <li class="nav-item ">
     <a class="nav-link" href="{{ route('laporan') }}">
         <i class="fas fa-fw fa-file"></i>
-        <span>Laporan</span></a>
+        <span>Report</span></a>
 </li>
 @endif
 

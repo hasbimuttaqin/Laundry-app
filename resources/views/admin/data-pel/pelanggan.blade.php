@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Data Pelanggan</title>
+    <title>Member Data</title>
 
     @include('template.head')
 
@@ -37,7 +37,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Pelanggan</h1>
+    <h1 class="h3 mb-2 text-gray-800">Member Data</h1>
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -47,7 +47,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Data Pelanggan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">List Of Member Data</h6>
 
             {{-- FORM SEARCH --}}
             <form action="/pelanggan" method="GET" class="d-none d-sm-inline-block  align-items-center">
@@ -63,7 +63,7 @@
          {{-- END SEARCH --}}
 
             <a href="/tambahdata" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                class="fas fa-plus fa-sm text-white-50"></i> Add Data</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -71,11 +71,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Alamat</th>
-                            <th>Jenis Kelamin</th>
-                            <th>No Telp</th>
-                            <th>Aksi</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Phone Number</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -99,7 +99,7 @@
                                 </a>
 
                                 @if (count($row->transaksis) < 1)
-                                <a href="/hapuspelanggan/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus?')">
+                                <a href="/hapuspelanggan/{{ $row->id }}" class="btn btn-danger" onclick="return confirm('Are You Sure You Want To Delete?')">
                                     <span class="text">Delete</span>
                                 </a>
                                 @endif

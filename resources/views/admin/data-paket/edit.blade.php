@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Data Paket</title>
+    <title>Edit Package Data</title>
 
     @include('template.head')
 
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Paket</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Package</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Data Paket</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Package Data</h6>
 
         </div>
         <div class="card-body">
@@ -46,7 +46,7 @@
           <form action="/editpaket/{{ $paket->id }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Outlet</label>
+                <label for="nama" class="form-label">Outlets Name</label>
                 <select class="form-select" aria-label="Default select example" name="id_outlet" disabled>
                     <option selected value="{{ $paket->id }}">{{ $paket->outlets->nama_outlet }}</option>
                     {{-- @foreach ($outlet as $item)
@@ -56,7 +56,7 @@
               </div>
 
             <div class="mb-4">
-                <label for="alamat" class="form-label">Nama Paket</label>
+                <label for="alamat" class="form-label">Package Name</label>
                 <input type="text" class="form-control" id="alamat" name="nama_paket" value="{{ $paket->nama_paket }}">
                 @error('nama_paket')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -64,18 +64,18 @@
               </div>
 
             <div class="mb-3">
-                <label for="jeniskelamin" class="form-label">Jenis Paket</label>
+                <label for="jeniskelamin" class="form-label">Package Type</label>
                 <select class="form-select" aria-label="Default select example" name="jenis">
                     <option selected>{{ $paket->jenis }}</option>
-                    <option value="kiloan">kiloan</option>
-                    <option value="selimut">selimut</option>
-                    <option value="bed_cover">bed_cover</option>
-                    <option value="kaos">kaos</option>
+                    <option value="kiloan">Kilos</option>
+                    <option value="selimut">Blanket</option>
+                    <option value="bed_cover">Bed Covers</option>
+                    <option value="kaos">Shirt</option>
                   </select>
               </div>
 
               <div class="mb-3">
-                <label for="notlp" class="form-label">Harga</label>
+                <label for="notlp" class="form-label">Price</label>
                 <input type="number" class="form-control" id="notelp" name="harga" value="{{ $paket->harga }}">
                 @error('harga')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>

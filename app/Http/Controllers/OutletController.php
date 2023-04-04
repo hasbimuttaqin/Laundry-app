@@ -33,7 +33,7 @@ class OutletController extends Controller
         ]);
 
         Outlet::create($request->all());
-        return redirect()->route('outlet')->with('success', 'Data outlet berhasil ditambahkan.');
+        return redirect()->route('outlet')->with('success', 'Outlets Data Add Sucessfully');
     }
 
     public function show($id)
@@ -53,12 +53,12 @@ class OutletController extends Controller
         $outlet = Outlet::find($id);
         $outlet->update($request->all());
 
-        return redirect()->route('outlet')->with('success', 'Data outlet berhasil diubah.');
+        return redirect()->route('outlet')->with('success', 'Outlets Data Successfully Changed');
     }
 
     public function destroy(Request $request, $id)
     {
         $outlet = Outlet::find($id)->delete();
-        return redirect()->route('outlet')->with('success', 'Data outlet berhasil dihapus');
+        return redirect()->route('outlet')->with('success', 'Outlets Data Has Been Successfully Deleted');
     }
 }

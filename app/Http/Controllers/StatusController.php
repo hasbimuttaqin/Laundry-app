@@ -25,6 +25,6 @@ class StatusController extends Controller
         $transaksi = Transaksi::find($id);
         $transaksi->update($request->all());
 
-        return redirect()->route('transaksi')->with('success', 'Status Transaksi Berhasil Diubah');
+        return redirect()->route('transaksi')->with('success', 'Transaction Status Successfully Changed');
     }
 }

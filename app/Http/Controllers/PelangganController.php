@@ -34,7 +34,7 @@ class PelangganController extends Controller
         ]);
 
         Pelanggan::create($request->all());
-        return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil ditambahkan.');
+        return redirect()->route('pelanggan')->with('success', 'Member Data Add Successfully');
     }
 
     public function show($id)
@@ -55,13 +55,13 @@ class PelangganController extends Controller
         $pelanggan = Pelanggan::find($id);
         $pelanggan->update($request->all());
 
-        return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil diubah.');
+        return redirect()->route('pelanggan')->with('success', 'Member Data Successfully Changed');
     }
 
     public function destroy(Request $request, $id)
     {
         $pelanggan = Pelanggan::find($id)->delete();
 
-        return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil dihapus.');
+        return redirect()->route('pelanggan')->with('success', 'Member Data Has Been Successfully Delete');
     }
 }

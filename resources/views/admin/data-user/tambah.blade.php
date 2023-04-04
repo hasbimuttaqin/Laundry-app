@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Tambah Data User</title>
+    <title>Add User Data</title>
 
     @include('template.head')
 
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tambah User</h1>
+    <h1 class="h3 mb-2 text-gray-800">Add User</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tambah Data User</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Add User Data</h6>
 
         </div>
         <div class="card-body">
@@ -46,7 +46,7 @@
           <form action="{{ route('store.user') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
+                <label for="nama" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nama" name="nama">
                 @error('nama')
                  <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -64,9 +64,9 @@
             <div class="mb-3">
                 <label for="role" class="form-label">Role</label>
                 <select class="form-select" aria-label="Default select example" name="role">
-                    <option selected>Pilih Role</option>
+                    <option selected>Select Role</option>
                     <option value="admin">Admin</option>
-                    <option value="kasir">Kasir</option>
+                    <option value="kasir">Cashier</option>
                     <option value="owner">Owner</option>
                   </select>
                   @error('role')

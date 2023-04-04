@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Edit Status Transaksi</title>
+    <title>Edit Transaction Status</title>
 
     @include('template.head')
 
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Status Transaksi</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Transaction Status</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Status Transaksi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Transaction Status</h6>
 
         </div>
         <div class="card-body">
@@ -50,10 +50,10 @@
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" aria-label="Default select example" name="status">
                     <option selected>{{ $transaksi->status }}</option>
-                    <option value="baru">baru</option>
-                    <option value="proses">proses</option>
-                    <option value="selesai">selesai</option>
-                    <option value="diambil">diambil</option>
+                    <option value="baru">New</option>
+                    <option value="proses">Process</option>
+                    <option value="selesai">Done</option>
+                    <option value="diambil">Taken</option>
                   </select>
               </div>
 
